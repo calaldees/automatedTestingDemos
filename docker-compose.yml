@@ -1,0 +1,71 @@
+# From https://github.com/SeleniumHQ/docker-selenium
+# https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=selenium&starCount=0
+#
+# To execute this docker-compose yml file use docker-compose -f <file_name> up
+# Add the "-d" flag at the end for deattached execution
+version: "3.6"
+services:
+
+  #selenium-hub:
+  #  image: selenium/standalone-chrome-debug:${SELENIUM_VERSION}
+  #  container_name: selenium-hub
+  #  environment:
+  #    - SE_OPTS="-debug"
+  #    - VNC_NO_PASSWORD=1
+  #  ports:
+  #    - "4444:4444"
+  #    - "5900:5900"
+  #  volumes:
+  #   - /dev/shm:/dev/shm
+
+  selenium-hub:
+    image: selenium/hub:${SELENIUM_VERSION}
+    container_name: selenium-hub
+    environment:
+      - SE_OPTS="-debug"
+    ports:
+      - "4444:4444"  # http://localhost:4444/grid/console
+
+  #chrome:
+  #  image: selenium/node-chrome:${SELENIUM_VERSION}
+  #  depends_on:
+  #    - selenium-hub
+  #  environment:
+  #    - HUB_HOST=selenium-hub
+  #    - HUB_PORT=4444
+
+  chrome-debug:
+    image: selenium/node-chrome-debug:${SELENIUM_VERSION}
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - VNC_NO_PASSWORD=1
+      - SCREEN_WIDTH=1280
+      - SCREEN_HEIGHT=800
+    #privileged: true
+    #volumes:
+    # - /dev/shm:/dev/shm
+    ports:
+      - "5900:5900"  # https://github.com/SeleniumHQ/docker-selenium#debugging
+
+  #firefox:
+  #  image: selenium/node-firefox:${SELENIUM_VERSION}
+  #  depends_on:
+  #    - selenium-hub
+  #  environment:
+  #    - HUB_HOST=selenium-hub
+  #    - HUB_PORT=4444
+
+  pytest:
+    build:
+      context: .
+      dockerfile: python-selenium.dockerfile
+    depends_on:
+      - selenium-hub
+    volumes:
+      - ./:/selenium:ro
+    command: pytest --driver Remote --host selenium-hub --capability browserName chrome
+    # --capability browserName firefox
+    #--variables variables/chrome.json
