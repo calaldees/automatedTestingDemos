@@ -66,6 +66,8 @@ services:
       - selenium-hub
     volumes:
       - ./:/selenium:ro
-    command: pytest --driver Remote --host selenium-hub --capability browserName chrome
+      - ${PATH_HOST_REPORTS}:${PATH_CONTAINER_REPORTS}:rw
+    entrypoint: pytest --driver Remote --host selenium-hub --html ${PATH_CONTAINER_REPORTS}/${REPORT_HTML_FILENAME} --junitxml=${PATH_CONTAINER_REPORTS}/${REPORT_XML_FILENAME} --capability browserName chrome
+    #command: --pdb
     # --capability browserName firefox
-    #--variables variables/chrome.json
+    # --variables variables/chrome.json
