@@ -1,7 +1,6 @@
 import pytest
 
 from selenium.webdriver.support.ui import WebDriverWait
-#from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -16,6 +15,9 @@ def chrome_options(chrome_options):
 
 @pytest.fixture
 def selenium(selenium):
+    """
+    Expand base selenium driver with additional functionality
+    """
     def wait_for_element(*args):
         return WebDriverWait(selenium, 10).until(EC.presence_of_element_located(args))
     selenium.wait_for_element = wait_for_element
