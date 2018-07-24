@@ -1,14 +1,44 @@
 version: "3.6"
+
 services:
+
+  # On BareMetal/Pysical Linux - you can use a containerised android image with appium
+  #
+  # Reference:
+  #   https://github.com/butomo1989/docker-android#run-appium-server
+  #
+  #   docker run --rm -d --privileged -p 6080:6080 -p 5554:5554 -p 5555:5555 -e DEVICE="Samsung Galaxy S6" -e APPIUM=True -p 4723:4723 -v $APPIUM_APK_PATH:$APPIUM_APK_PATH:ro --name android-container
+  #
+  #android-container:
+  #  image: butomo1989/docker-android-x86-${ANDROID_VERSION:-7.1.1}
+  #  privileged: true
+  #  volumes:
+  #    - ${APPIUM_APK_PATH}:${APPIUM_APK_PATH}:ro
+  #    - ${REPORT_FOLDER}/video:/tmp/video
+  #  environment:
+  #    - TZ=Europe/London
+  #    - DEVICE=${DEVICE:-Samsung Galaxy S6}
+  #    - APPIUM=True
+  #    - AUTO_RECORD=${RECORD_VIDEO:-False}
+  #    #- CONNECT_TO_GRID=False
+  #    #- SELENIUM_HOST=selenium_hub
+  #    #- SELENIUM_PORT=4444
+  #  ports:
+  #    #- 5555:5555  # Android
+  #    #- 5554:5554  # Android
+  #    #- 4723:4723  # Appium
+  #    - ${VNC_PORT:-6080}:6080  # noVNC  http://android-container:6080/
 
   pytest:
     build:
       context: .
       dockerfile: python-appium.dockerfile
+    #links:
+    #  - android-container
     volumes:
       - ./:${PATH_CONTAINER_WORKDIR}:ro
       - ${PATH_HOST_REPORTS}:${PATH_CONTAINER_REPORTS}:rw
     entrypoint: pytest --html ${PATH_CONTAINER_REPORTS}/${REPORT_HTML_FILENAME} --junitxml=${PATH_CONTAINER_REPORTS}/${REPORT_XML_FILENAME} --appium_host host.docker.internal
-    command: --variables variables/android_emulator_local_example.json --pdb --capability newCommandTimeout 9999
+    # --appium_host android-container
+    command: --variables variables/android_emulator_local_example.json
     #command: --pdb --capability newCommandTimeout 9999
-    # --capability newCommandTimeout 9999
