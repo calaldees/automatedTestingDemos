@@ -1,0 +1,13 @@
+version: "3.6"
+services:
+
+  pytest:
+    build:
+      context: .
+      dockerfile: python-appium.dockerfile
+    volumes:
+      - ./:${PATH_CONTAINER_WORKDIR}:ro
+      - ${PATH_HOST_REPORTS}:${PATH_CONTAINER_REPORTS}:rw
+    entrypoint: pytest --html ${PATH_CONTAINER_REPORTS}/${REPORT_HTML_FILENAME} --junitxml=${PATH_CONTAINER_REPORTS}/${REPORT_XML_FILENAME} --variables variables/android_emulator_local.json ----appium_host host.docker.internal
+    #command: --pdb
+    # --capability newCommandTimeout 9999

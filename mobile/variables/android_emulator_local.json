@@ -1,0 +1,10 @@
+
+    "capabilities": {
+        "platformName": "Android",
+        "deviceName": "Android Emulator",
+        "app": "file.apk",
+        "automationName": "UiAutomator2",
+        "newCommandTimeout": 10,
+        "autoGrantPermissions": "true"
+    }
+}

@@ -1,0 +1,7 @@
+pytest
+pytest-html
+pytest-variables
+pytest-rerunfailures
+Appium-Python-Client
+
+git+https://github.com/calaldees/pytest-appium.git@master#egg=pytest-appium
