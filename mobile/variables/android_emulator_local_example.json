@@ -2,7 +2,8 @@
     "capabilities": {
         "platformName": "Android",
         "deviceName": "Android Emulator",
-        "app": "file.apk",
+        "appPackage": "com.google.android.deskclock",
+        "appActivity": "com.android.deskclock.DeskClock",
         "automationName": "UiAutomator2",
         "newCommandTimeout": 10,
         "autoGrantPermissions": "true"
