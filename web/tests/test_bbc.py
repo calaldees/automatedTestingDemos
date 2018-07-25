@@ -14,11 +14,11 @@ def test_bbc_top_story(selenium_bbc):
     selenium = selenium_bbc
     selenium.wait_for_element(By.CSS_SELECTOR, '.top-story').click()
     assert selenium.wait_for_element(By.CSS_SELECTOR, '.story-body__h1').text, 'Article should have a title'
-    assert selenium.wait_for_element(By.CSS_SELECTOR, '.media-with-caption'), 'Article should have an image/video'
+    assert selenium.wait_for_element(By.CSS_SELECTOR, '.media-landscape'), 'Article should have an image/video'
 
 
 def test_bbc_terms(selenium_bbc):
     selenium = selenium_bbc
     selenium.wait_for_element(By.PARTIAL_LINK_TEXT, 'Terms of Use').click()
-    assert 'When do I need a TV Licence' in selenium.page_source
+    #assert 'When do I need a TV Licence' in selenium.page_source
     assert 'When do I need a TV Licence' in selenium.wait_for_element(By.CSS_SELECTOR, '.gel-layout.gel-topic-opts').text

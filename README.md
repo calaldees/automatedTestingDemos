@@ -15,6 +15,7 @@ Automated testing tooling is hard to setup and deploy.
 
 This repo has example flows of web and mobile automated testing.
 
+This repo has additional information about [Learning Automation](learn_automation.md)
 
 # Using These Examples
 
@@ -34,31 +35,3 @@ Install [Docker](https://www.docker.com/community-edition) for your OS.
     * [pytest-appium](https://github.com/calaldees/pytest-appium)
 * [docker](https://www.docker.com/)
     * docker makes it simpler to setup for local development and easier to integrate into production build jobs.
-
-
-# Common Testing Terminology
-
-* Unit Tests
-    * Tests that functions/methods/modules (normally in the software code/languages itself)
-* Integration Tests (test multiple components work together)
-    * Tests a user journey/flow
-* Functional Test
-    * Check 'x' feature works (login, purchase, terms & conditions)
-* Non Functional Test
-    * Performance
-    * Security
-* Assertion
-    * Test have a number of assertions 'when we click the x, _assert_ we see the y'
-* A 'Test Script'
-    * A list of features/flows/instructions to test (can be automated or manual)
-* A 'Test Report'
-    * A list of tests that passed/failed (and why [screen-shots and error-messages]) (can be automated or manual)
-* Business Features (in ranked order)
-    * A unit of functionality the business requires (not the software provides). E.g. Terms and Conditions pages are of great legal importance to a business but not really for users.
-* Release Process (automated is referred to as Release Pipeline)
-    * The steps/checks/process's that must take place before software is released (can be automated or manual)
-* Selector
-    * A way of specifying a UI item/component for automated testing
-        * [CSS](https://www.w3schools.com/cssref/css_selectors.asp) (Web)
-        * [UISelector](https://developer.android.com/reference/android/support/test/uiautomator/UiSelector) (Android)
-        * [XPath](https://www.w3schools.com/xml/xpath_intro.asp) (XML)

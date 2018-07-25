@@ -1,3 +1,11 @@
+# Mobile Automation Example
+
+* Test Android `com.google.android.deskclock`
+    * Set timer to 5 seconds and activate/stop
+* Test iOS
+    * TODO
+
+
 # Setup
 
 `docker` must be installed
@@ -16,11 +24,9 @@ Windows and OSX need to install an `avd` (Android Virtual Device) and `appium` l
 
 ```bash
     # windows/osx open `avd` and `appium`
-    docker-compose run --rm android-container -d  # linux only
-    # when finished (linux only)
-    docker-compose down
+    docker-compose run --rm --service-ports android-container  # linux only (+see docker-compose.yml for --appium_host)
 
-    docker-compose run --rm --no-deps pytest --pdb
+    docker-compose run --rm --no-deps pytest
 ```
 
 * See the test working (linux only)

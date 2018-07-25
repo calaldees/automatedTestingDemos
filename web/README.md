@@ -1,3 +1,9 @@
+# Web Browser Automation Example
+
+* Test some basic functionality of the [BBC Homepage](http://www.bbc.co.uk/)
+    * Top Article
+    * Terms of Use
+
 # Setup
 
 `docker` must be installed
@@ -6,9 +12,7 @@
 # Run Example
 
 ```bash
-    docker-compose run --rm chrome-debug -d
-    # when finished
-    docker-compose down
+    docker-compose run --rm --service-ports chrome-debug
 
     docker-compose run --rm --no-deps pytest --pdb
 ```
