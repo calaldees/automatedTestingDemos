@@ -4,7 +4,7 @@
 
 * Selectors
     * A way of specifying a UI item/component for automated testing
-        * [CSS](https://www.w3schools.com/cssref/css_selectors.asp) (Web)
+        * [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp) (Web)
         * [UISelector](https://developer.android.com/reference/android/support/test/uiautomator/UiSelector) (Android)
     * Other selector methods exists. I would avoid using these where possible
         * [XPath](https://www.w3schools.com/xml/xpath_intro.asp) (XML)

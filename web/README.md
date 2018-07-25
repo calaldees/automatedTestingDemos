@@ -4,12 +4,12 @@
     * Top Article
     * Terms of Use
 
-# Setup
+## Setup
 
 `docker` must be installed
 
 
-# Run Example
+## Run Example
 
 ```bash
     docker-compose run --rm --service-ports chrome-debug
@@ -29,3 +29,5 @@ Reports are placed in `reports` folder. Open `report.html` file in your browser.
 * [pytest](https://docs.pytest.org/) - The test runner (commandline options, layout tests)
     * [pytest-selenium](https://github.com/pytest-dev/pytest-selenium/blob/master/docs/user_guide.rst)
 * [selenium-python](http://selenium-python.readthedocs.io/) - library for controlling the browser
+
+* [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp) (Web)
