@@ -2,6 +2,12 @@ from pytest_appium.android.UIAutomator2 import UiSelector
 
 
 def test_android_clock_timer(appium_extended):
+    """
+    This test runs `deskclock`
+    Capability's must be set to
+        "appPackage": "com.google.android.deskclock",
+        "appActivity": "com.android.deskclock.DeskClock",
+    """
     appium = appium_extended
 
     def tap_tab(tab_name):
@@ -10,8 +16,8 @@ def test_android_clock_timer(appium_extended):
             .resourceIdMatches('.*tabs')
             .childSelector(
                 UiSelector()
-                    .className('android.widget.TextView')
-                    .textContains(tab_name.upper())
+                .className('android.widget.TextView')
+                .textContains(tab_name.upper())
             )
             .build()
         ).click()

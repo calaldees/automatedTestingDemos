@@ -15,6 +15,14 @@ Automated testing tooling is hard to setup and deploy.
 
 This repo has example flows of web and mobile automated testing.
 
+
+# Using These Examples
+
+All examples in this repo use `docker`.
+
+Install [Docker](https://www.docker.com/community-edition) for your OS.
+
+
 # Technology's Used
 
 * [selenium](https://www.seleniumhq.org/) Web Browser automation control
@@ -25,7 +33,7 @@ This repo has example flows of web and mobile automated testing.
     * [pytest-selenium](https://github.com/pytest-dev/pytest-selenium/blob/master/docs/user_guide.rst)
     * [pytest-appium](https://github.com/calaldees/pytest-appium)
 * [docker](https://www.docker.com/)
-    * docker makes it simpler to setup for local development and easyer to integrate into production build jobs.
+    * docker makes it simpler to setup for local development and easier to integrate into production build jobs.
 
 
 # Common Testing Terminology
