@@ -19,6 +19,7 @@ With guidance; I genuinely believe that any average computer user could become a
     * [Visual Studio Code](https://code.visualstudio.com/)
         * `choco install vscode`
         * `brew cask install vscode`
+        * `sudo apt-get install vscode`
 * Understand basic [python3](https://docs.python.org/3/) syntax
     * Mostly by observation of the examples
 * Understand the basics of _version control_ [git](https://git-scm.com/)
@@ -26,7 +27,9 @@ With guidance; I genuinely believe that any average computer user could become a
     * Aspiring pros use _commandline_ `status`, `push`, `pull`, `commit`, `add`
 * Understand basic formats
     * [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-    * [JSON](https://www.w3schools.com/js/js_json_syntax.asp)
+    * [json](https://www.w3schools.com/js/js_json_syntax.asp)
+    * [yaml](http://yaml.org/)
+    * [xml](https://www.w3schools.com/xml/xml_whatis.asp)
 
 
 ## Step 2: Learn the concept of `selectors`
