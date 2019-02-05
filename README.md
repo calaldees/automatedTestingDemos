@@ -27,6 +27,7 @@ Install [Docker](https://www.docker.com/community-edition) for your OS.
 # Technology's Used
 
 * [selenium](https://www.seleniumhq.org/) Web Browser automation control
+    * Technology to remotely control a web browser
 * [appium](http://appium.io/) Android and iOS automation control
 * [pytest](https://docs.pytest.org) Extendible python testing framework
     * [selenium-python](http://selenium-python.readthedocs.io/)
@@ -35,3 +36,5 @@ Install [Docker](https://www.docker.com/community-edition) for your OS.
     * [pytest-appium](https://github.com/calaldees/pytest-appium)
 * [docker](https://www.docker.com/)
     * docker makes it simpler to setup for local development and easier to integrate into production build jobs.
+* [cypress](www.cypress.io) Web Browser automation framework
+    * Technology to run tests inside a web browser with javascript
